@@ -1,7 +1,21 @@
 #!/bin/bash
 
 INPUT=$(cat)
-COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command')
+
+if command -v jq >/dev/null 2>&1; then
+  COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // .toolInput.command // .command // ""')
+elif command -v python3 >/dev/null 2>&1; then
+  COMMAND=$(echo "$INPUT" | python3 -c 'import json,sys
+data=json.load(sys.stdin)
+print((data.get("tool_input") or data.get("toolInput") or data).get("command", ""))')
+elif command -v python >/dev/null 2>&1; then
+  COMMAND=$(echo "$INPUT" | python -c 'import json,sys
+data=json.load(sys.stdin)
+print((data.get("tool_input") or data.get("toolInput") or data).get("command", ""))')
+else
+  echo "BLOCKED: cannot inspect command because jq/python is unavailable." >&2
+  exit 2
+fi
 
 DANGEROUS_PATTERNS=(
   "git push"

@@ -1,0 +1,39 @@
+{
+  "name": "mattpocock-skills",
+  "version": "0.1.0",
+  "description": "Small, composable engineering and productivity skills packaged for Codex.",
+  "author": {
+    "name": "Matt Pocock"
+  },
+  "homepage": "https://github.com/mattpocock/skills",
+  "repository": "https://github.com/mattpocock/skills",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "engineering",
+    "tdd",
+    "debugging",
+    "architecture",
+    "productivity"
+  ],
+  "skills": "./.agents/skills/",
+  "interface": {
+    "displayName": "Matt Pocock Skills",
+    "shortDescription": "Engineering and productivity workflows for coding agents",
+    "longDescription": "A compact skill library for Codex and Claude Code: diagnosis, TDD, triage, PRDs, issue slicing, architecture review, handoffs, and focused planning workflows.",
+    "developerName": "Matt Pocock",
+    "category": "Engineering",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Help me diagnose this bug",
+      "Turn this plan into issues",
+      "Use TDD for this change"
+    ],
+    "brandColor": "#2563EB",
+    "screenshots": []
+  }
+}
