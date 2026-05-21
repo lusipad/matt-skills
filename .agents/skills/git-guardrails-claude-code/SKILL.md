@@ -1,10 +1,10 @@
 ---
 name: git-guardrails-claude-code
-description: Set up Claude Code or Codex hooks to block dangerous git commands before they execute.
+description: 当需要为 Claude Code 或 Codex 设置 hooks，阻止 push、reset --hard、clean 等危险 git 命令时使用。
 ---
 
 # Codex Adapter: git-guardrails-claude-code
 
-Load and follow the canonical skill at [../../../skills/misc/git-guardrails-claude-code/SKILL.md](../../../skills/misc/git-guardrails-claude-code/SKILL.md).
+加载并遵循 canonical skill：[../../../skills/misc/git-guardrails-claude-code/SKILL.md](../../../skills/misc/git-guardrails-claude-code/SKILL.md)。
 
-Do not change behavior in this adapter. Update the canonical skill instead.
+不要在这个 adapter 里修改行为；请更新 canonical skill。

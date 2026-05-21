@@ -1,57 +1,57 @@
 ---
 name: git-guardrails-claude-code
-description: Set up Claude Code or Codex hooks to block dangerous git commands (push, reset --hard, clean, branch -D, etc.) before they execute. Use when user wants to prevent destructive git operations, add git safety hooks, or block git push/reset in Claude Code or Codex.
+description: 当用户想为 Claude Code 或 Codex 添加 git 安全 hooks，阻止 push、reset --hard、clean、branch -D 等危险 git 命令执行前通过时使用。
 ---
 
 # Setup Git Guardrails
 
-Sets up a PreToolUse hook that intercepts and blocks dangerous git commands before Claude Code or Codex executes them.
+设置一个 PreToolUse hook，在 Claude Code 或 Codex 执行危险 git 命令前拦截并阻止。
 
-The skill keeps its historical `git-guardrails-claude-code` name for compatibility, but the workflow supports both agents.
+这个 skill 保留历史名称 `git-guardrails-claude-code` 以保持兼容，但工作流同时支持两个 agent。
 
-## What Gets Blocked
+## 会阻止什么
 
-- `git push` (all variants including `--force`)
+- `git push`（包括 `--force` 等所有变体）
 - `git reset --hard`
 - `git clean -f` / `git clean -fd`
 - `git branch -D`
 - `git checkout .` / `git restore .`
 
-When blocked, the agent sees a message telling it that it does not have authority to access these commands.
+命令被阻止时，agent 会看到一条消息，说明它没有权限访问这些命令。
 
-## Steps
+## 步骤
 
-### 1. Ask target and scope
+### 1. 询问目标和范围
 
-Ask the user which target to install for:
+询问用户要安装到哪个目标：
 
 - **Claude Code**
 - **Codex**
 - **Both**
 
-Then ask scope:
+然后询问范围：
 
 - **This project only**
 - **All projects**
 
-### 2. Copy the hook script
+### 2. 复制 hook 脚本
 
-The bundled script is at: [scripts/block-dangerous-git.sh](scripts/block-dangerous-git.sh)
+内置脚本位于：[scripts/block-dangerous-git.sh](scripts/block-dangerous-git.sh)
 
-Copy it to the target location based on target and scope:
+根据目标和范围复制到对应位置：
 
-- **Claude project**: `.claude/hooks/block-dangerous-git.sh`
-- **Claude global**: `~/.claude/hooks/block-dangerous-git.sh`
-- **Codex project**: `.codex/hooks/block-dangerous-git.sh`
-- **Codex global**: `~/.codex/hooks/block-dangerous-git.sh`
+- **Claude project**：`.claude/hooks/block-dangerous-git.sh`
+- **Claude global**：`~/.claude/hooks/block-dangerous-git.sh`
+- **Codex project**：`.codex/hooks/block-dangerous-git.sh`
+- **Codex global**：`~/.codex/hooks/block-dangerous-git.sh`
 
-Make it executable with `chmod +x`.
+用 `chmod +x` 让它可执行。
 
-### 3. Add hook to settings
+### 3. 添加到 settings
 
-Add to the appropriate settings file.
+写入对应 settings 文件。
 
-**Claude project** (`.claude/settings.json`):
+**Claude project**（`.claude/settings.json`）：
 
 ```json
 {
@@ -71,7 +71,7 @@ Add to the appropriate settings file.
 }
 ```
 
-**Claude global** (`~/.claude/settings.json`):
+**Claude global**（`~/.claude/settings.json`）：
 
 ```json
 {
@@ -91,9 +91,9 @@ Add to the appropriate settings file.
 }
 ```
 
-If the settings file already exists, merge the hook into existing `hooks.PreToolUse` array — don't overwrite other settings.
+如果 settings 文件已存在，把 hook merge 到现有 `hooks.PreToolUse` array，不要覆盖其它 settings。
 
-**Codex project** (`.codex/hooks.json`):
+**Codex project**（`.codex/hooks.json`）：
 
 ```json
 {
@@ -114,7 +114,7 @@ If the settings file already exists, merge the hook into existing `hooks.PreTool
 }
 ```
 
-**Codex global** (`~/.codex/hooks.json`):
+**Codex global**（`~/.codex/hooks.json`）：
 
 ```json
 {
@@ -135,18 +135,18 @@ If the settings file already exists, merge the hook into existing `hooks.PreTool
 }
 ```
 
-If the Codex hooks file already exists, merge the hook into existing `hooks.PreToolUse` array — don't overwrite other hooks. Hooks are enabled by default in Codex; if the user's config explicitly disables hooks with `[features].hooks = false`, ask before changing it.
+如果 Codex hooks 文件已存在，把 hook merge 到现有 `hooks.PreToolUse` array，不要覆盖其它 hooks。Codex 默认启用 hooks；如果用户 config 显式设置 `[features].hooks = false`，修改前先询问。
 
-### 4. Ask about customization
+### 4. 询问是否自定义
 
-Ask if user wants to add or remove any patterns from the blocked list. Edit the copied script accordingly.
+询问用户是否要向 blocked list 添加或移除 pattern。按需编辑复制后的脚本。
 
-### 5. Verify
+### 5. 验证
 
-Run a quick test:
+运行快速测试：
 
 ```bash
 echo '{"tool_input":{"command":"git push origin main"}}' | <path-to-script>
 ```
 
-Should exit with code 2 and print a BLOCKED message to stderr.
+应该以 code 2 退出，并向 stderr 打印 BLOCKED 消息。

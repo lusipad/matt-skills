@@ -1,10 +1,10 @@
 ---
 name: setup-matt-pocock-skills
-description: Set up AGENTS.md or CLAUDE.md plus docs/agents context so the engineering skills know the repo issue tracker, triage labels, and domain docs.
+description: 当需要为仓库配置 Agent skills、issue tracker、triage labels 和 domain docs 布局时使用。
 ---
 
 # Codex Adapter: setup-matt-pocock-skills
 
-Load and follow the canonical skill at [../../../skills/engineering/setup-matt-pocock-skills/SKILL.md](../../../skills/engineering/setup-matt-pocock-skills/SKILL.md).
+加载并遵循 canonical skill：[../../../skills/engineering/setup-matt-pocock-skills/SKILL.md](../../../skills/engineering/setup-matt-pocock-skills/SKILL.md)。
 
-Do not change behavior in this adapter. Update the canonical skill instead.
+不要在这个 adapter 里修改行为；请更新 canonical skill。

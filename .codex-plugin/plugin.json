@@ -1,7 +1,7 @@
 {
   "name": "mattpocock-skills",
   "version": "0.1.0",
-  "description": "Small, composable engineering and productivity skills packaged for Codex.",
+  "description": "为 Codex 打包的小型、可组合工程和生产力 skills。",
   "author": {
     "name": "Matt Pocock"
   },
@@ -19,8 +19,8 @@
   "skills": "./.agents/skills/",
   "interface": {
     "displayName": "Matt Pocock Skills",
-    "shortDescription": "Engineering and productivity workflows for coding agents",
-    "longDescription": "A compact skill library for Codex and Claude Code: diagnosis, TDD, triage, PRDs, issue slicing, architecture review, handoffs, and focused planning workflows.",
+    "shortDescription": "面向编码代理的工程和生产力工作流",
+    "longDescription": "面向 Codex 和 Claude Code 的紧凑 skill library：诊断、TDD、分诊、PRD、议题切片、架构审查、交接和聚焦计划工作流。",
     "developerName": "Matt Pocock",
     "category": "Engineering",
     "capabilities": [
@@ -29,9 +29,9 @@
       "Write"
     ],
     "defaultPrompt": [
-      "Help me diagnose this bug",
-      "Turn this plan into issues",
-      "Use TDD for this change"
+      "帮我诊断这个错误",
+      "把这个计划拆成议题",
+      "用 TDD 做这次修改"
     ],
     "brandColor": "#2563EB",
     "screenshots": []

@@ -1,10 +1,10 @@
 ---
 name: prototype
-description: Build a throwaway prototype for state, business-logic, data-model, or UI design questions before committing to an implementation.
+description: 当用户想做原型、检查数据模型或状态机、模拟 UI，或探索设计选项时使用。
 ---
 
 # Codex Adapter: prototype
 
-Load and follow the canonical skill at [../../../skills/engineering/prototype/SKILL.md](../../../skills/engineering/prototype/SKILL.md).
+加载并遵循 canonical skill：[../../../skills/engineering/prototype/SKILL.md](../../../skills/engineering/prototype/SKILL.md)。
 
-Do not change behavior in this adapter. Update the canonical skill instead.
+不要在这个 adapter 里修改行为；请更新 canonical skill。

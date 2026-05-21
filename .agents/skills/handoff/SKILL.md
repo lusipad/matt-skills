@@ -1,10 +1,10 @@
 ---
 name: handoff
-description: Compact the current conversation into a handoff document so another agent can continue the work.
+description: 当需要把当前对话压缩成可交接文档，让另一个 agent 接手继续工作时使用。
 ---
 
 # Codex Adapter: handoff
 
-Load and follow the canonical skill at [../../../skills/productivity/handoff/SKILL.md](../../../skills/productivity/handoff/SKILL.md).
+加载并遵循 canonical skill：[../../../skills/productivity/handoff/SKILL.md](../../../skills/productivity/handoff/SKILL.md)。
 
-Do not change behavior in this adapter. Update the canonical skill instead.
+不要在这个 adapter 里修改行为；请更新 canonical skill。

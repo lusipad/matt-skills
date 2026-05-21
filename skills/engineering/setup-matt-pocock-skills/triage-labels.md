@@ -1,6 +1,6 @@
 # Triage Labels
 
-The skills speak in terms of five canonical triage roles. This file maps those roles to the actual label strings used in this repo's issue tracker.
+这些 skills 使用五个 canonical triage roles 表达分诊状态。这个文件把这些 roles 映射到当前仓库 issue tracker 里真实使用的 label 字符串。
 
 | Label in mattpocock/skills | Label in our tracker | Meaning                                  |
 | -------------------------- | -------------------- | ---------------------------------------- |
@@ -10,6 +10,6 @@ The skills speak in terms of five canonical triage roles. This file maps those r
 | `ready-for-human`          | `ready-for-human`    | Requires human implementation            |
 | `wontfix`                  | `wontfix`            | Will not be actioned                     |
 
-When a skill mentions a role (e.g. "apply the AFK-ready triage label"), use the corresponding label string from this table.
+当 skill 提到某个 role（例如 “apply the AFK-ready triage label”）时，使用表中对应的真实 label 字符串。
 
-Edit the right-hand column to match whatever vocabulary you actually use.
+把右侧列改成你们实际使用的词汇。

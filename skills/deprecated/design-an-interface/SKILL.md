@@ -1,29 +1,29 @@
 ---
 name: design-an-interface
-description: Generate multiple radically different interface designs for a module using parallel sub-agents. Use when user wants to design an API, explore interface options, compare module shapes, or mentions "design it twice".
+description: 当用户想设计 API、探索接口选项、比较模块形状，或提到 "design it twice" 时，使用并行子代理为模块生成多个明显不同的接口设计。
 ---
 
 # Design an Interface
 
-Based on "Design It Twice" from "A Philosophy of Software Design": your first idea is unlikely to be the best. Generate multiple radically different designs, then compare.
+基于《A Philosophy of Software Design》里的 “design it twice”：第一个想法很可能不是最好的。生成多个完全不同的设计，然后比较。
 
-## Workflow
+## 工作流
 
-### 1. Gather Requirements
+### 1. 收集需求
 
-Before designing, understand:
+设计前先理解：
 
-- [ ] What problem does this module solve?
-- [ ] Who are the callers? (other modules, external users, tests)
-- [ ] What are the key operations?
-- [ ] Any constraints? (performance, compatibility, existing patterns)
-- [ ] What should be hidden inside vs exposed?
+- [ ] 这个模块解决什么问题？
+- [ ] 调用者是谁？（其它模块、外部用户、测试）
+- [ ] 关键操作有哪些？
+- [ ] 有哪些约束？（性能、兼容性、现有模式）
+- [ ] 什么应该藏在内部，什么应该暴露？
 
-Ask: "What does this module need to do? Who will use it?"
+询问：“这个模块需要做什么？谁会使用它？”
 
-### 2. Generate Designs (Parallel Sub-Agents)
+### 2. 生成设计（并行子代理）
 
-Spawn 3+ sub-agents simultaneously using Task tool. Each must produce a **radically different** approach.
+使用 Task tool 同时生成 3 个以上子代理。每个子代理都必须提出一种**完全不同**的方法。
 
 ```
 Prompt template for each sub-agent:
@@ -45,50 +45,50 @@ Output format:
 4. Trade-offs of this approach
 ```
 
-### 3. Present Designs
+### 3. 展示设计
 
-Show each design with:
+展示每个设计：
 
-1. **Interface signature** - types, methods, params
-2. **Usage examples** - how callers actually use it in practice
-3. **What it hides** - complexity kept internal
+1. **Interface signature**：类型、方法、参数
+2. **Usage example**：调用者实际如何使用
+3. **What it hides**：哪些复杂性留在内部
 
-Present designs sequentially so user can absorb each approach before comparison.
+按顺序展示，让用户先吸收每种方法，再进行比较。
 
-### 4. Compare Designs
+### 4. 比较设计
 
-After showing all designs, compare them on:
+展示所有设计后，比较它们：
 
-- **Interface simplicity**: fewer methods, simpler params
-- **General-purpose vs specialized**: flexibility vs focus
-- **Implementation efficiency**: does shape allow efficient internals?
-- **Depth**: small interface hiding significant complexity (good) vs large interface with thin implementation (bad)
+- **Interface simplicity**：方法更少、参数更简单
+- **General vs specific**：灵活性和专注度之间的取舍
+- **Implementation efficiency**：这个形状是否允许高效内部实现？
+- **Depth**：隐藏大量复杂性的小接口（好）vs 大接口薄实现（坏）
 - **Ease of correct use** vs **ease of misuse**
 
-Discuss trade-offs in prose, not tables. Highlight where designs diverge most.
+用 prose 讨论权衡，不要用表格。突出设计之间差异最大的地方。
 
-### 5. Synthesize
+### 5. 综合
 
-Often the best design combines insights from multiple options. Ask:
+最好的设计通常会结合多个方案的洞见。询问：
 
-- "Which design best fits your primary use case?"
-- "Any elements from other designs worth incorporating?"
+- “哪种设计最适合你的主要用例？”
+- “其它设计中有哪些元素值得吸收？”
 
-## Evaluation Criteria
+## 评价标准
 
-From "A Philosophy of Software Design":
+摘自《A Philosophy of Software Design》：
 
-**Interface simplicity**: Fewer methods, simpler params = easier to learn and use correctly.
+**Interface simplicity**：更少的方法、更简单的参数 = 更容易学习并正确使用。
 
-**General-purpose**: Can handle future use cases without changes. But beware over-generalization.
+**Generality**：无需修改就能处理未来用例。但要小心过度泛化。
 
-**Implementation efficiency**: Does interface shape allow efficient implementation? Or force awkward internals?
+**Implementation efficiency**：接口形状是否允许高效实现？还是会迫使内部变得尴尬？
 
-**Depth**: Small interface hiding significant complexity = deep module (good). Large interface with thin implementation = shallow module (avoid).
+**Depth**：小接口隐藏大量复杂性 = deep module（好）。大接口加薄实现 = shallow module（避免）。
 
-## Anti-Patterns
+## 反模式
 
-- Don't let sub-agents produce similar designs - enforce radical difference
-- Don't skip comparison - the value is in contrast
-- Don't implement - this is purely about interface shape
-- Don't evaluate based on implementation effort
+- 不要让子代理产出相似设计；强制根本差异
+- 不要跳过比较，价值就在对比
+- 不要实现；这个 skill 只讨论接口形状
+- 不要根据实现工作量评价设计

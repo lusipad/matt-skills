@@ -1,8 +1,8 @@
 # Interface Design for Testability
 
-Good interfaces make testing natural:
+好接口会让测试自然出现：
 
-1. **Accept dependencies, don't create them**
+1. **接收依赖，不要内部创建依赖**
 
    ```typescript
    // Testable
@@ -14,7 +14,7 @@ Good interfaces make testing natural:
    }
    ```
 
-2. **Return results, don't produce side effects**
+2. **返回结果，不要只制造副作用**
 
    ```typescript
    // Testable
@@ -26,6 +26,6 @@ Good interfaces make testing natural:
    }
    ```
 
-3. **Small surface area**
-   - Fewer methods = fewer tests needed
-   - Fewer params = simpler test setup
+3. **小表面积**
+   - methods 越少，需要的测试越少
+   - params 越少，测试 setup 越简单

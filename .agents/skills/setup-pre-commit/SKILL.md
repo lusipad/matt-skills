@@ -1,10 +1,10 @@
 ---
 name: setup-pre-commit
-description: Set up Husky pre-commit hooks with lint-staged, type checking, and tests in the current repo.
+description: 当需要用 Husky、lint-staged、Prettier、类型检查和测试设置 pre-commit hooks 时使用。
 ---
 
 # Codex Adapter: setup-pre-commit
 
-Load and follow the canonical skill at [../../../skills/misc/setup-pre-commit/SKILL.md](../../../skills/misc/setup-pre-commit/SKILL.md).
+加载并遵循 canonical skill：[../../../skills/misc/setup-pre-commit/SKILL.md](../../../skills/misc/setup-pre-commit/SKILL.md)。
 
-Do not change behavior in this adapter. Update the canonical skill instead.
+不要在这个 adapter 里修改行为；请更新 canonical skill。

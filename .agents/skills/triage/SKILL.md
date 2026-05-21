@@ -1,10 +1,10 @@
 ---
 name: triage
-description: Triage issues through a state machine of triage roles for incoming bugs, feature requests, and AFK-ready agent briefs.
+description: 当用户想创建、分诊、审查或准备 AFK agent 可接手的 issues 时使用。
 ---
 
 # Codex Adapter: triage
 
-Load and follow the canonical skill at [../../../skills/engineering/triage/SKILL.md](../../../skills/engineering/triage/SKILL.md).
+加载并遵循 canonical skill：[../../../skills/engineering/triage/SKILL.md](../../../skills/engineering/triage/SKILL.md)。
 
-Do not change behavior in this adapter. Update the canonical skill instead.
+不要在这个 adapter 里修改行为；请更新 canonical skill。

@@ -1,10 +1,10 @@
 # Refactor Candidates
 
-After TDD cycle, look for:
+TDD cycle 之后，寻找：
 
-- **Duplication** → Extract function/class
-- **Long methods** → Break into private helpers (keep tests on public interface)
-- **Shallow modules** → Combine or deepen
-- **Feature envy** → Move logic to where data lives
-- **Primitive obsession** → Introduce value objects
-- **Existing code** the new code reveals as problematic
+- **Duplication** -> 抽出 function/class
+- **Long methods** -> 拆成 private helpers（测试仍然只测 public interface）
+- **Shallow modules** -> 合并或加深
+- **Feature envy** -> 把逻辑移动到数据所在处
+- **Primitive obsession** -> 引入 value objects
+- **Existing code**：新代码暴露出的现有问题

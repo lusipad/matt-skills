@@ -1,18 +1,18 @@
-# Domain Docs
+# 领域文档
 
-How the engineering skills should consume this repo's domain documentation when exploring the codebase.
+工程类 skills 在探索代码库时，应按这里的规则读取仓库里的领域文档。
 
-## Before exploring, read these
+## 探索前先读
 
-- **`CONTEXT.md`** at the repo root, or
-- **`CONTEXT-MAP.md`** at the repo root if it exists — it points at one `CONTEXT.md` per context. Read each one relevant to the topic.
-- **`docs/adr/`** — read ADRs that touch the area you're about to work in. In multi-context repos, also check `src/<context>/docs/adr/` for context-scoped decisions.
+- 仓库根目录的 **`CONTEXT.md`**，或
+- 根目录存在 **`CONTEXT-MAP.md`** 时读取它；它会指向每个 context 对应的 `CONTEXT.md`。只读取与当前主题相关的 context。
+- **`docs/adr/`**：读取和即将处理区域相关的 ADR。多 context 仓库还要检查 `src/<context>/docs/adr/` 中的 context-scoped decisions。
 
-If any of these files don't exist, **proceed silently**. Don't flag their absence; don't suggest creating them upfront. The producer skill (`/grill-with-docs`) creates them lazily when terms or decisions actually get resolved.
+如果这些文件不存在，**安静地继续**。不要专门指出缺失，也不要提前建议创建。生产这些文档的 skill（`/grill-with-docs`）会在术语或决策真正被确认时按需创建它们。
 
-## File structure
+## 文件结构
 
-Single-context repo (most repos):
+单 context 仓库（大多数仓库）：
 
 ```
 /
@@ -23,7 +23,7 @@ Single-context repo (most repos):
 └── src/
 ```
 
-Multi-context repo (presence of `CONTEXT-MAP.md` at the root):
+多 context 仓库（根目录存在 `CONTEXT-MAP.md`）：
 
 ```
 /
@@ -38,14 +38,14 @@ Multi-context repo (presence of `CONTEXT-MAP.md` at the root):
         └── docs/adr/
 ```
 
-## Use the glossary's vocabulary
+## 使用 glossary 里的词
 
-When your output names a domain concept (in an issue title, a refactor proposal, a hypothesis, a test name), use the term as defined in `CONTEXT.md`. Don't drift to synonyms the glossary explicitly avoids.
+当输出要命名领域概念时（issue title、refactor proposal、hypothesis、test name），使用 `CONTEXT.md` 中定义的术语。不要漂移到 glossary 明确避免的同义词。
 
-If the concept you need isn't in the glossary yet, that's a signal — either you're inventing language the project doesn't use (reconsider) or there's a real gap (note it for `/grill-with-docs`).
+如果你需要的概念还不在 glossary 里，这是一个信号：要么你正在发明项目并未使用的语言（重新考虑），要么确实存在缺口（记录给 `/grill-with-docs`）。
 
-## Flag ADR conflicts
+## 标出 ADR 冲突
 
-If your output contradicts an existing ADR, surface it explicitly rather than silently overriding:
+如果你的输出和现有 ADR 冲突，要明确指出，而不是默默覆盖：
 
-> _Contradicts ADR-0007 (event-sourced orders) — but worth reopening because…_
+> _Contradicts ADR-0007 (event-sourced orders), but worth reopening because..._

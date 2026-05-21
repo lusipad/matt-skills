@@ -1,59 +1,59 @@
 ---
 name: to-issues
-description: Break a plan, spec, or PRD into independently-grabbable issues on the project issue tracker using tracer-bullet vertical slices. Use when user wants to convert a plan into issues, create implementation tickets, or break down work into issues.
+description: 当用户想把计划、spec 或 PRD 转成实现议题，或把工作拆成可独立领取的任务时，用 tracer-bullet vertical slices 发布到项目 issue tracker。
 ---
 
 # To Issues
 
-Break a plan into independently-grabbable issues using vertical slices (tracer bullets).
+用 vertical slices（tracer bullets）把计划拆成可以独立领取的议题。
 
-The issue tracker and triage label vocabulary should have been provided to you — run `/setup-matt-pocock-skills` if not.
+Issue tracker 和 triage label vocabulary 应该已经提供给你；如果没有，先运行 `/setup-matt-pocock-skills`。
 
-## Process
+## 流程
 
-### 1. Gather context
+### 1. 收集上下文
 
-Work from whatever is already in the conversation context. If the user passes an issue reference (issue number, URL, or path) as an argument, fetch it from the issue tracker and read its full body and comments.
+优先使用当前对话里已经存在的上下文。如果用户传入 issue reference（issue number、URL 或 path）作为参数，就从 issue tracker 获取它，并完整阅读 body 和 comments。
 
-### 2. Explore the codebase (optional)
+### 2. 探索代码库（可选）
 
-If you have not already explored the codebase, do so to understand the current state of the code. Issue titles and descriptions should use the project's domain glossary vocabulary, and respect ADRs in the area you're touching.
+如果还没有探索过代码库，先探索当前代码状态。Issue title 和 description 应使用项目领域 glossary 的词汇，并尊重即将触碰区域的 ADR。
 
-### 3. Draft vertical slices
+### 3. 起草 vertical slices
 
-Break the plan into **tracer bullet** issues. Each issue is a thin vertical slice that cuts through ALL integration layers end-to-end, NOT a horizontal slice of one layer.
+把计划拆成 **tracer bullet** issues。每个 issue 都是一条很薄但端到端的 vertical slice，会穿过所有 integration layers，而不是某一层的 horizontal slice。
 
-Slices may be 'HITL' or 'AFK'. HITL slices require human interaction, such as an architectural decision or a design review. AFK slices can be implemented and merged without human interaction. Prefer AFK over HITL where possible.
+Slice 可以是 HITL 或 AFK。HITL slices 需要人类互动，例如架构决策或设计评审。AFK slices 可以在无人互动的情况下实现并合并。能选 AFK 时优先 AFK。
 
 <vertical-slice-rules>
-- Each slice delivers a narrow but COMPLETE path through every layer (schema, API, UI, tests)
-- A completed slice is demoable or verifiable on its own
-- Prefer many thin slices over few thick ones
+- 每个 slice 都交付一条窄但完整的端到端路径（schema、API、UI、tests）
+- 完成的 slice 应该可以独立 demo 或验证
+- 优先拆成多个薄 slice，而不是少数厚 slice
 </vertical-slice-rules>
 
-### 4. Quiz the user
+### 4. 询问用户
 
-Present the proposed breakdown as a numbered list. For each slice, show:
+把拆分方案用编号列表展示。每个 slice 展示：
 
-- **Title**: short descriptive name
-- **Type**: HITL / AFK
-- **Blocked by**: which other slices (if any) must complete first
-- **User stories covered**: which user stories this addresses (if the source material has them)
+- **Title**：短而清楚的名称
+- **Type**：HITL / AFK
+- **Blocked by**：必须先完成哪些其它 slices（如有）
+- **User stories covered**：覆盖哪些 user stories（如果源材料里有）
 
-Ask the user:
+询问用户：
 
-- Does the granularity feel right? (too coarse / too fine)
-- Are the dependency relationships correct?
-- Should any slices be merged or split further?
-- Are the correct slices marked as HITL and AFK?
+- 颗粒度是否合适？太粗还是太细？
+- 依赖关系是否正确？
+- 是否有 slice 应该合并或继续拆分？
+- HITL 和 AFK 标记是否正确？
 
-Iterate until the user approves the breakdown.
+持续迭代，直到用户批准拆分方案。
 
-### 5. Publish the issues to the issue tracker
+### 5. 发布议题到 issue tracker
 
-For each approved slice, publish a new issue to the issue tracker. Use the issue body template below. These issues are considered ready for AFK agents, so publish them with the correct triage label unless instructed otherwise.
+对每个已批准的 slice，在 issue tracker 新建一个 issue。使用下面的 issue body template。这些 issues 视为已经准备好给 AFK agents 接手，所以除非用户另有说明，发布时加上正确的 triage label。
 
-Publish issues in dependency order (blockers first) so you can reference real issue identifiers in the "Blocked by" field.
+按依赖顺序发布 issues（blockers 先发布），这样 “Blocked by” 字段可以引用真实 issue identifiers。
 
 <issue-template>
 ## Parent
@@ -80,4 +80,4 @@ Or "None - can start immediately" if no blockers.
 
 </issue-template>
 
-Do NOT close or modify any parent issue.
+不要关闭或修改任何 parent issue。

@@ -1,6 +1,6 @@
 ---
 name: zoom-out
-description: Tell the agent to zoom out and give broader context or a higher-level perspective. Use when you're unfamiliar with a section of code or need to understand how it fits into the bigger picture.
+description: 当用户不熟悉某段代码，或需要理解它在更大系统中的位置时，要求 agent 抽高一层解释上下文。
 ---
 
-I don't know this area of code well. Go up a layer of abstraction. Give me a map of all the relevant modules and callers, using the project's domain glossary vocabulary.
+我不熟悉这片代码。请抽高一层，用项目领域词汇给我一张地图：相关模块有哪些、调用方是谁、它们在整个系统里分别负责什么。

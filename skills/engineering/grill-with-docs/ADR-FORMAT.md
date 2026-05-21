@@ -1,10 +1,10 @@
-# ADR Format
+# ADR 格式
 
-ADRs live in `docs/adr/` and use sequential numbering: `0001-slug.md`, `0002-slug.md`, etc.
+ADR 存放在 `docs/adr/`，按顺序编号：`0001-slug.md`、`0002-slug.md`。
 
-Create the `docs/adr/` directory lazily — only when the first ADR is needed.
+只有真正需要写第一份 ADR 时，才创建 `docs/adr/` 目录。
 
-## Template
+## 模板
 
 ```md
 # {Short title of the decision}
@@ -12,36 +12,36 @@ Create the `docs/adr/` directory lazily — only when the first ADR is needed.
 {1-3 sentences: what's the context, what did we decide, and why.}
 ```
 
-That's it. An ADR can be a single paragraph. The value is in recording *that* a decision was made and *why* — not in filling out sections.
+到这里就够了。ADR 可以只有一个段落。它的价值在于记录“我们做了什么决定”和“为什么这么决定”，而不是把模板栏目填满。
 
-## Optional sections
+## 可选部分
 
-Only include these when they add genuine value. Most ADRs won't need them.
+只有在确实增加价值时才加入这些部分。大多数 ADR 不需要它们。
 
-- **Status** frontmatter (`proposed | accepted | deprecated | superseded by ADR-NNNN`) — useful when decisions are revisited
-- **Considered Options** — only when the rejected alternatives are worth remembering
-- **Consequences** — only when non-obvious downstream effects need to be called out
+- **Status** frontmatter (`proposed | accepted | deprecated | superseded by ADR-NNNN`)：当决策会被重新审视时有用
+- **Considered Options**：只有被拒绝的备选方案值得未来记住时才写
+- **Consequences**：只有不明显的下游影响需要明确提醒时才写
 
-## Numbering
+## 编号
 
-Scan `docs/adr/` for the highest existing number and increment by one.
+扫描 `docs/adr/` 中现有的最高编号，然后加一。
 
-## When to offer an ADR
+## 何时提供 ADR
 
-All three of these must be true:
+必须同时满足这三点：
 
-1. **Hard to reverse** — the cost of changing your mind later is meaningful
-2. **Surprising without context** — a future reader will look at the code and wonder "why on earth did they do it this way?"
-3. **The result of a real trade-off** — there were genuine alternatives and you picked one for specific reasons
+1. **难以逆转**：以后改主意会付出明显成本。
+2. **缺少上下文会显得反常**：未来读者看代码时会问“为什么要这样做？”。
+3. **来自真实权衡**：确实存在可行备选方案，而团队基于具体原因选择了其中一个。
 
-If a decision is easy to reverse, skip it — you'll just reverse it. If it's not surprising, nobody will wonder why. If there was no real alternative, there's nothing to record beyond "we did the obvious thing."
+如果一个决定很容易撤回，就跳过它；以后真要变更也不难。如果它不反常，没人会追问原因。如果当时没有真实备选方案，也没必要记录“我们做了显而易见的事”。
 
-### What qualifies
+### 哪些决策值得记录
 
-- **Architectural shape.** "We're using a monorepo." "The write model is event-sourced, the read model is projected into Postgres."
-- **Integration patterns between contexts.** "Ordering and Billing communicate via domain events, not synchronous HTTP."
-- **Technology choices that carry lock-in.** Database, message bus, auth provider, deployment target. Not every library — just the ones that would take a quarter to swap out.
-- **Boundary and scope decisions.** "Customer data is owned by the Customer context; other contexts reference it by ID only." The explicit no-s are as valuable as the yes-s.
-- **Deliberate deviations from the obvious path.** "We're using manual SQL instead of an ORM because X." Anything where a reasonable reader would assume the opposite. These stop the next engineer from "fixing" something that was deliberate.
-- **Constraints not visible in the code.** "We can't use AWS because of compliance requirements." "Response times must be under 200ms because of the partner API contract."
-- **Rejected alternatives when the rejection is non-obvious.** If you considered GraphQL and picked REST for subtle reasons, record it — otherwise someone will suggest GraphQL again in six months.
+- **架构形态。** “我们使用 monorepo。” “写模型用 event sourcing，读模型投影到 Postgres。”
+- **上下文之间的集成方式。** “Ordering 和 Billing 通过 domain events 通信，而不是同步 HTTP。”
+- **带来锁定成本的技术选择。** 数据库、消息总线、认证提供商、部署目标。不是每个库都值得写，只有那些替换成本可能按季度计算的选择才值得写。
+- **边界和范围决策。** “Customer 数据归 Customer context 所有；其它 context 只能通过 ID 引用。” 明确的“不做什么”和“做什么”同样有价值。
+- **刻意偏离常规路径。** “我们不用 ORM，而是手写 SQL，因为 X。” 任何合理读者可能默认相反方案的地方，都值得记录，免得下一位工程师把刻意选择当成问题修掉。
+- **代码里看不出来的约束。** “合规要求导致我们不能用 AWS。” “合作方 API 合约要求响应时间低于 200ms。”
+- **不明显的备选方案拒绝理由。** 如果团队考虑过 GraphQL，最后因为细微但重要的原因选择 REST，就写下来；否则半年后还会有人重新提 GraphQL。

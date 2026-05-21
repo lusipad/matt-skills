@@ -1,10 +1,10 @@
 ---
 name: diagnose
-description: Disciplined diagnosis loop for hard bugs and performance regressions. Reproduce, minimise, hypothesise, instrument, fix, then regression-test.
+description: 当遇到困难 bug 或性能回归时，用复现、最小化、假设、仪表化、修复和回归测试的纪律化循环诊断。
 ---
 
 # Codex Adapter: diagnose
 
-Load and follow the canonical skill at [../../../skills/engineering/diagnose/SKILL.md](../../../skills/engineering/diagnose/SKILL.md).
+加载并遵循 canonical skill：[../../../skills/engineering/diagnose/SKILL.md](../../../skills/engineering/diagnose/SKILL.md)。
 
-Do not change behavior in this adapter. Update the canonical skill instead.
+不要在这个 adapter 里修改行为；请更新 canonical skill。

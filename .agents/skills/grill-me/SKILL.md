@@ -1,10 +1,10 @@
 ---
 name: grill-me
-description: Interview the user relentlessly about a plan or design until every branch of the decision tree is resolved.
+description: 当用户想压力测试计划、澄清设计，或提到 "grill me" 时，围绕决策树逐步追问直到形成共享理解。
 ---
 
 # Codex Adapter: grill-me
 
-Load and follow the canonical skill at [../../../skills/productivity/grill-me/SKILL.md](../../../skills/productivity/grill-me/SKILL.md).
+加载并遵循 canonical skill：[../../../skills/productivity/grill-me/SKILL.md](../../../skills/productivity/grill-me/SKILL.md)。
 
-Do not change behavior in this adapter. Update the canonical skill instead.
+不要在这个 adapter 里修改行为；请更新 canonical skill。

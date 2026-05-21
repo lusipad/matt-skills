@@ -1,14 +1,14 @@
 # Verify/Check Mode for `setup-matt-pocock-skills`
 
-This project will not add a dedicated verify/check mode (or a separate verify skill) for `setup-matt-pocock-skills`.
+本项目不会为 `setup-matt-pocock-skills` 增加专门的 verify/check mode，也不会新增独立 verify skill。
 
-## Why this is out of scope
+## 为什么不在范围内
 
-A second skill — or a `--verify` flag — for checking whether `docs/agents/*.md` artifacts still match the seed-template schema would duplicate work the existing setup skill already handles in conversation.
+再加一个 skill，或给它加 `--verify` flag，用来检查 `docs/agents/*.md` artifacts 是否仍匹配 seed-template schema，会重复现有 setup skill 已经能通过对话完成的工作。
 
-The intended workflow is: **run `/setup-matt-pocock-skills` and tell it to verify your current setup.** The skill is prompt-driven, so the maintainer can scope it to a verification pass ("don't rewrite anything, just check my existing files against the current seed templates and report drift") without needing a separate code path. Adding a flag or a sibling skill would split the surface area of a feature that's already expressible through the natural-language entry point.
+预期工作流是：**运行 `/setup-matt-pocock-skills`，并告诉它验证当前 setup。** 这个 skill 是 prompt-driven 的，所以 maintainer 可以把它限定为 verification pass，例如：“不要重写任何东西，只检查我现有文件和当前 seed templates 是否有 drift，并报告结果。” 不需要单独代码路径。新增 flag 或 sibling skill 会把一个已经能通过自然语言入口表达的功能拆成更多 surface area。
 
-Keeping configuration management to a single skill also avoids the maintenance cost of two skills drifting from each other when seed templates evolve.
+把配置管理保留在一个 skill 里，也能避免 seed templates 演进时两个 skills 互相漂移。
 
 ## Prior requests
 
